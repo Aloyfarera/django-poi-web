@@ -1,0 +1,443 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+
+<meta name="description" content="Find the nearest store from your position in JAPAN. Powered by Location Smart WEB.">
+
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'../www.googletagmanager.com/gtm5445.html?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MD97MW');</script>
+<!-- End Google Tag Manager -->
+
+<meta name="twitter:card"        content="summary_large_image">
+<meta name="twitter:title"       content="Lokasi Pintar WEB チェーン店検索">
+<meta name="twitter:description" content="店舗をマップ表示／商圏分析のための店舗データ">
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<link href="{% static 'css/all.css' %}" rel='stylesheet'>
+<link href="{% static 'css/sidebar.css' %}" rel='stylesheet'>
+<link href="{% static 'css/home.css' %}" rel='stylesheet'>
+<link href="{% static 'css/list.css' %}" rel='stylesheet'>
+
+
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<title>Chain stores map - Lokasi Pintar</title>
+
+<script src="{% static 'js/home.js' %}"></script>
+
+</head> 
+
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src='https://www.googletagmanager.com/ns.html?id=GTM-MD97MW'
+height='0' width='0' style='display:none;visibility:hidden'></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+	<div id='_base'>
+
+		<div id='_header' style='
+				display:grid; 
+				grid-template-columns: 60px 150px auto 370px;
+			'>
+	
+			<!-- バーガー -->
+			<div id='_handle' 
+				onclick='side_switch();'
+				style='
+					cursor:pointer;
+margin:15px 0 0 10px;
+				'>
+				<img src="{% static 'img/icon/mini_menu.png' %}" style='height:45px;'>
+			</div>
+
+			<!-- ロゴ -->
+			<a href='e_index.html' title='Lokasi Pintar WEB'>
+				<img id='_logo'
+					style='
+margin-top:10px;
+						cursor:pointer;
+						height: 50px;
+					 ' 
+					src="{% static 'img/icon/logo_lokasi_pintar.png' %}">
+			</a>
+
+<div id='_header_ad'
+style='
+_background:yellow;
+text-align:right;
+line-height:18px;
+'>
+<div style='
+margin-top:18px;
+display:inline-block;
+text-align:center;
+'>
+<a href='https://www.d-advantage.jp/ja/gis' target='_blank'>
+All POIs are available for purchase.<br>
+For more information, click here.
+</a>
+</div>
+</div>
+
+			<!-- 右上エリア -->
+			<div id='_top_right' style='
+height:100%;
+text-align:right;
+			'>
+				<div id='_apple' style='
+							display:none;
+margin-top:18px;
+vertical-align:middle;
+height:35px;
+						'>
+					<a href=''>
+						<img src="{% static 'img/icon/_apple.png' %}"  style='
+							height:100%;
+						'>
+					</a>
+				</div>
+
+				<div id='_google' style='
+							display:none;
+margin-top:18px;
+vertical-align:middle;
+height:34px;
+					'>
+					<a href=''>
+						<img src="{% static 'img/icon/_google.png' %}" style='
+							height:100%;
+						'>
+					</a>
+				</div>
+
+<div id='_help'
+title='Help'
+style='
+display:inline-block;
+_background:red;
+margin-top:23px;
+text-align:center;
+width:35px;
+vertical-align:middle;
+'>
+<a href='' target='_blank' class='material-icons' >help</a>
+</div>
+
+<div id='_translate'
+title='Switch Language'
+style='
+display:inline-block;
+_background:red;
+margin-top:23px;
+text-align:center;
+width:35px;
+vertical-align:middle;
+
+margin-right: 5px;
+'>
+<a href='' class='material-icons' >translate</a>
+</div>
+			</div>
+		</div>
+
+		<div id='_main'>
+			<div id='_side' style='height:100%; overflow-x:hidden;'>
+				<div id='_side_top' style='position:relative;'>
+					<input id='_q' 
+							oninput='start_search();' 
+							type='textbox' 
+							placeholder='Find Map or Chain'
+					   		style='
+background:#e3f7fd;
+								width:180px;
+								position:absolute;
+								top: 20px;
+								left: 15px;
+							'>
+
+					<button 
+							onclick='
+								_q.value = "";
+								start_search();
+							'
+							style='
+								font-size: 20px;
+								/* height:20px; */
+								width:20px;
+								border: 0;
+								background: transparent;
+								position:absolute;
+								top: 22px;
+								left: 185px;
+								cursor: pointer;
+							'>×</button>
+				</div>
+                
+				<div id='_side_bottom'>
+					<div id='_search' style='background:red; display:none; width:100%; min-height:0;max-height:0;'>
+					</div>
+					{% include "chain/base.html" %}
+					{% comment %} <iframe src="{% url 'base' %}" style='display:block; width:100%; height:100%; border:0;' id="_iframe"></iframe>  {% endcomment %}
+                </div>
+			</div>
+		</div>
+
+			<div id='_map_container' style='position: relative;'>
+
+				<div ontouchstart='click_on_map();' ontouchmove='click_on_map();' id='_map_canvas' style='position:absolute;width:100%;height:100%;'></div>
+				<!-- prettier-ignore -->
+				<script>
+
+					var curentB_category = "{{ b_category }}";
+					var currentChainId = "{{ chain_id }}";
+				</script>
+				<script src="{% static 'js/map.js' %}"></script> 
+				
+
+<a href='e_index.html' id='_title_area_link'>
+				<div 
+				 	id='_title_area'
+					style='
+						position: absolute;
+						top:  10px;
+						left: 50px;
+						z-index: 777;
+						background: rgba(255, 255, 255, 0.9);
+						border: solid 2px #118ab2;
+						border-radius: 10px;
+
+word-break:break-all;
+margin-right:10px;
+						display:flex;
+				'>
+					<!-- マップのアイコン -->
+					<img 
+				 		id='_title_icon'
+						style='
+							margin-left:10px;
+							margin-top:5px;
+							margin-bottom:5px;
+							height:40px;
+						 '>
+
+					<div style='margin-left:10px;'>
+
+						<!-- マップのタイトル -->
+						<div 
+							id='_title_div'
+							style='
+								font-size: 18px;
+								line-height:20px;
+								margin-top:10px;
+								margin-right:10px;
+								width: 100%;
+								font-weight: bold;
+								color: #118ab2;
+
+						'> LOADING...</div>
+
+						<!-- マップの説明 -->
+						<div 
+							id='_desc_div'
+							style='
+								margin-top:-2px;
+								margin-right:px;
+								width: 100%;
+								color: gray;
+								font-size:14px;
+								'
+						></div>
+					</div>
+				</div>
+</a>
+
+				<!-- 右下ボタンエリア -->
+				<div id='_button_area' 
+						style='
+							position:absolute;
+							z-index:777;
+							bottom:60px;
+							right:10px;
+							text-align:right;
+							width:50px;
+					'>
+
+					<button class='material-icons map_button'
+								title='Find Address'
+								onclick='__find_address();'>search</button>
+
+
+					<button class='material-icons map_button' 
+								style='margin-top:20px;'
+								title='Zoom In'
+								id='_zoom_in' onclick='__zoom(+1);'>add</button>
+					<button class='material-icons map_button' 
+								title='Zoom Out'
+								id='_zoom_out' onclick='__zoom(-1);'>remove</button>
+
+					<button class='material-icons map_button' 
+						style='margin-top:20px;'
+						title='Zoom Lock'
+						onclick='
+							switch_button(this);
+							setTimeout(() => { about_lock(); },  1);
+					'>lock_open</button>
+
+					<button class='material-icons map_button' 
+								title='Sattellite View'
+								onclick='__pict();switch_button(this);'>satellite</button>
+
+					<button class='material-icons map_button' 
+								title='My Location'
+								id='_my_location' onclick='__here();'>my_location</button>
+
+				</div>
+
+				<!-- バナー -->
+				<div id='_ad'
+					 style='
+						display: inline-block;
+						z-index: 888;
+						position:absolute;
+						bottom:10px;
+						left: 50%;
+						transform:translate(-50%, 0%);
+				'>
+					<img id='_ad_img'
+							onclick='ad_click(this);'
+						style='
+							width: 100%;
+							border-radius: 10px;
+							box-shadow: 0 0 20px gray;
+							cursor: pointer;
+					'>
+				</div>
+			</div>
+		</div>
+
+		<div id='_footer'>
+			Lokasi Pintar WEB <span id='_info'></span>
+			<br>
+			&copy; <a href='' target='_blank'>LOKASI PINTAR</a>
+			/
+			<a href='' target='_blank'>Terms</a>
+			/
+			<a href='' target='_blank'>Changes</a>
+		</div>
+
+	</div>
+</body>
+
+<!-- Mirrored from www.locationsmart.org/e_index.php by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 13 Jul 2024 09:09:25 GMT -->
+</html>
+
+
+
+<script>
+
+	let side_opened = true;
+
+	function init() {
+		var url_param = document.location.search;
+		if (_my_device != 'pc') {
+
+			_base.style.gridTemplateRows = '55px auto 40px'; // 高さ
+
+			// ヘッダー広告なし
+			_header_ad.style.display = 'none';
+			_header.style.gridTemplateColumns = '50px 100px auto'; // ヘッダーの各幅
+
+			_handle.style.height = '30px';
+			_handle.style.margin = '5px 0px 0px 5px';
+
+			_logo.style.height = '40px';
+
+			_apple.style.marginTop = '10px';
+			_google.style.marginTop = '10px';
+			_help.style.marginTop = '15px';
+			_translate.style.marginTop = '15px';
+
+			//_top_right.style.height = '35px';
+
+			if (_my_device == 'iphone') {
+				_apple.style.display = 'inline-block';
+			} else {
+				_google.style.display = 'inline-block';
+			}
+
+			_ad.style.display = 'none';
+
+			//_zoom_in.style.display = 'none';
+			//_zoom_out.style.display = 'none';
+			//_qrcode.style.display = 'none';
+		} else {
+			_apple.style.display = 'inline-block';
+			_google.style.display = 'inline-block';
+		}
+
+		// PC or スマホでパラメータなしならサイドバーを開く
+		if (_my_device == 'pc' || url_param == '') {
+			//__map_refresh = true;
+			side_open();
+		} else  {
+			side_opened = false;
+		}
+
+		////////////////////////////////////////////////////////////////////////////////
+
+		_side.addEventListener("transitionstart", (e) => {
+			__map_refresh = false; // サイドバーの開閉中はピンを落とさない
+		});
+
+		_side.addEventListener("transitionend", (e) => {
+			__map_refresh = true;
+
+			if (func_run_after_close != null) {
+				func_run_after_close();
+				func_run_after_close = null;
+			}
+		});
+
+	}
+
+	init();
+</script>
+
+<script>
+
+	if (_my_device == 'pc') { _q.focus(); }
+
+	if (_english != true) {
+		_info.innerText = ' / ...';
+
+		let url = `${ROOT}/php/c.php?tag=_all`;
+		fetch(url).then(res => {
+			return res.json();
+		}).then(json => {
+			if (json != false) {
+				_info.innerText = ' / 全国 ' + json['desc'] + ' を掲載';
+				if (_my_device == 'pc') { _q.focus(); }
+			}
+		});
+	}
+
+	async function initMap() {
+		const { Map } = await google.maps.importLibrary("maps");
+		const {AdvancedMarkerElement} = await google.maps.importLibrary("marker")
+		main();
+	}
+	initMap();
+
+</script>

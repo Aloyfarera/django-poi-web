@@ -1,0 +1,117 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: "ArialMT", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", "メイリオ";
+	text-decoration: none;
+}
+
+.item:hover {
+	background: #eee;
+}
+
+.item {
+	position:relative;
+	padding: 2px;
+	margin: 3px 3px 3px 10px;
+	width: 210px;
+							height: 23px;
+	cursor:pointer;
+
+	overflow: hidden;
+
+	font-size: 14px;
+}
+
+.sub .item {
+	width: 185px;
+}
+
+.item_nomap {
+	padding: 2px;
+	margin: 3px 3px 3px 10px;
+	width: 210px;
+
+	overflow-x: hidden;
+
+	font-size: 14px;
+}
+
+.c { /* combo img */
+	height: 25px;
+}
+
+.item_nomap img {
+	height: 25px;
+	vertical-align: middle;
+	cursor: pointer;
+}
+
+.n {
+	display: inline-block;
+	vertical-align: top;
+	width: 160px;
+	margin-top: 2px;
+}
+
+.nn {
+	display: inline-block;
+	vertical-align: top;
+	width: 110px;
+	margin-top: 2px;
+}
+
+.sub .n {
+	width: 140px;
+	margin-left: -10px;
+}
+
+.sub .nni {
+	width: 140px;
+	margin-left: 10px;
+}
+
+.m {
+z-index:9999;
+	position: absolute;
+	right:0px;
+	top:0;
+	vertical-align:top;
+	height: 25px;
+}
+
+.p {
+	height:48px !important;
+	width:40px;
+	overflow:hidden;
+	object-position: -3px -3px;
+}
+
+
+hr {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.more_chain {
+	width: 150px;
+	display:inline-block;
+	margin: 10px 0 10px 10px;
+	font-size: 12px;
+	border-radius: 10px;
+	border: 1px gray solid;
+	padding-left: 10px;
+	padding-right: 10px;
+	text-align:center;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(155, 155, 155, 0.5);
+  border-radius: 20px;
+  border: transparent;
+}

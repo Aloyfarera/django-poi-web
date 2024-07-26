@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+		<meta charset='utf-8'>
+		<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no'>
+		<link href="{% static 'css/sidebar.css' %}" rel='stylesheet'>
+		<link href="{% static 'css/home.css' %}" rel='stylesheet'>
+		<link href="{% static 'css/list.css' %}" rel='stylesheet'>
+		
+		<script>
+			//let _my_device = parent._my_device;
+			let _my_device = parent.get_device();
+
+			function e(_e, _id = '') {
+
+				event.stopPropagation();
+
+				var id = '';
+				if (_id == '') {
+					id = 'sub_' + _e.parentElement.id;
+				} else {
+					id = 'sub_' + _id;
+				}
+
+				var display = document.getElementById(id).style.display;
+
+				if (display == 'none') {
+					document.getElementById(id).style.display = null;
+				} else {
+					document.getElementById(id).style.display = 'none';
+				}
+			}
+			
+		</script>
+	</head>
+
+	<body>
+
+	<div style='text-align:center; width:230px; height:85px;'>
+		<div id='_hint' style='width:100%; height:60px; font-size:14px;'>
+			Hello There!<br>This is Lokasi Pintar.<br>Chain Store Finder.
+		</div>
+		<div class='more_chain'>
+			<a href="{% url 'list_chain' %}" target='_parent'>All Chain List</a>
+		</div>
+	</div>
+
+<div style='margin: 15px 0px 10px 15px; border-top: 1px #ccc solid; width:200px;'></div>
+		<div class='item' id='_all' onclick='o(this);'>
+			<img class='c' src="{% static 'img/icon/map_chains.svg' %}"  loading='lazy'>
+			<div class='n'>All Chains</div>
+		</div>
+	
+		<div class='item' id='_food' onclick='o(this);' data-category='food'>
+			<img class='c' src="{% static 'img/icon/map_food.svg' %}" loading='lazy'>
+			<div class='n'>All Food</div>
+		</div>
+	
+		<div class='item' id='_shopping' onclick='o(this);' data-category='shopping'>
+			<img class='c' src="{% static 'img/icon/map_shopping.svg' %}"loading='lazy'>
+			<div class='n'>All Shopping</div>
+			
+		</div>
+	
+		<div class='item' id='_service' onclick='o(this);' data-category='service'>
+			<img class='c' src="{% static 'img/icon/map_service.svg' %}" loading='lazy'>
+			<div class='n'>All Service</div>
+			
+		</div>
+
+		<div style='margin: 15px 0px 10px 15px; border-top: 1px #ccc solid; width:200px;'></div>
+		<div class='item' id='_special_open100' onclick='o(this);'>
+			<img class='c' src='' loading='lazy'>
+			<div class='n'>Recent Open</div>
+			<img class='m' title='Expand' src="{% static 'img/icon/mini_menu.png' %}"onclick='e(this);'>
+		</div>
+	<div class='sub' id='sub__special_open100' style='margin-left:10px;display:none'>
+					<div class='item' id='_special_open100_food' onclick='o(this);'>
+						<div class='nni'><span style='font-size:80%'>Recent Open Food</span></div>
+					</div>
+					
+					<div class='item' id='_special_open100_shopping' onclick='o(this);'>
+						<div class='nni'><span style='font-size:80%'>Recent Open Shopping</span></div>
+					</div>
+					
+					<div class='item' id='_special_open100_service' onclick='o(this);'>
+						<div class='nni'><span style='font-size:80%'>Recent Open Service</span></div>
+					</div>
+					</div>
+	<div style='margin: 15px 0px 10px 15px; border-top: 1px #ccc solid; width:200px;'></div>
+		<div class='item' id='nomap_recent' onclick='o(this);'>
+			<img class='c' src='' loading='lazy'>
+			<div class='n'><span style='font-size:90%'><span style='font-size:95%'>Recently Added Chains</span></span></div>
+			<img class='m' title='Expand' src="{% static 'img/icon/mini_menu.png' %}" onclick='e(this);'>
+		</div>
+		<div class='sub' id='sub_nomap_recent' style='margin-left:10px;display:none'>
+			</div><div style='margin: 15px 0px 10px 15px; border-top: 1px #ccc solid; width:200px;'></div>
+<div class='item' id='_food_cafe' onclick='o(this);'>
+	<img class='c' src='' loading='lazy'>
+	<div class='n'>Cafe</div>
+	<img class='m' title='Expand' src="{% static 'img/icon/mini_menu.png' %}" onclick='e(this);'>
+</div>
+<div class='sub' id='sub__food_cafe' style='margin-left:10px;display:none'>
+
+

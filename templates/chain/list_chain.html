@@ -1,0 +1,95 @@
+{% load static %}
+{% load custom_filters %}
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no'>
+
+<link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'>
+<link href="{% static 'css/all.css' %}" rel='stylesheet'>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'../../www.googletagmanager.com/gtm5445.html?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MD97MW');</script>
+<!-- End Google Tag Manager -->
+
+<script>
+	function o(e) {
+		var id = e.id;
+		location.href = `/e_index.php?tag=${id}`
+	}
+</script>
+
+<title>Lokasi Pintar All Chain List</title>
+
+</head>
+
+<body id='_top'>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src='https://www.googletagmanager.com/ns.html?id=GTM-MD97MW'
+height='0' width='0' style='display:none;visibility:hidden'></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+	<div style='text-align:right;'>
+		<div style='height:10px; color:black; background:white;'>
+			<a href='all.html' target='_parent'>
+				Japanese
+			</a>
+		</div>
+	</div>
+
+	<div style='text-align:center;'>
+
+		<div>Lokasi Pintar All Chain List<br><span style='font-size:80%'>{{ total_chain }} / {{ total_rows }} POIs（2024/7/13 05:53 udated）</span></div>
+
+		<a href="{% url 'home'  %}">
+			<img style='margin-top:10px; width:250px;' src='images/logo.png'>
+		</a>
+
+		<div>
+			<a href='https://www.d-advantage.jp/ja/gis?b=top' target='_blank'>
+				All POIs are available for purchase.<br> For more information, click here.
+			</a>
+		</div>
+	</div>
+
+	<div style='text-align:right; margin: 10px 0 10px 0'><select onchange='window.location.hash = this.value;'><option>Jump to...</option><option value='_food_cafe' style='color:#ff6600'>Cafe</option><option value='_food_famires' style='color:#ff6600'>Family Restaurant</option><option value='_food_burger' style='color:#ff6600'>Burger</option><option value='_food_kaitenzushi' style='color:#ff6600'>Sushi-go-around</option><option value='_food_teishoku' style='color:#ff6600'>Combination Meal</option><option value='_food_buffet' style='color:#ff6600'>Buffet Restaurant</option><option value='_food_gyudon' style='color:#ff6600'>Rice Bowl</option><option value='_food_ramen' style='color:#ff6600'>Ramen / Jiaozi</option><option value='_food_curry' style='color:#ff6600'>Curry</option><option value='_food_tonkatsu' style='color:#ff6600'>Tonkatsu</option><option value='_food_syabusyabu' style='color:#ff6600'>Syabu Syabu</option><option value='_food_fugu' style='color:#ff6600'>Fugu</option><option value='_food_okonomiyaki' style='color:#ff6600'>Okonomiyaki / Takoyaki</option><option value='_food_udon' style='color:#ff6600'>Udon</option><option value='_food_soba' style='color:#ff6600'>Soba</option><option value='_food_izakaya' style='color:#ff6600'>Pub / Bar</option><option value='_food_korean' style='color:#ff6600'>Asia / Ethnic</option><option value='_food_gyutan' style='color:#ff6600'>Beef tongue</option><option value='_food_tenpura' style='color:#ff6600'>Tenpura</option><option value='_food_yakiniku' style='color:#ff6600'>Yakiniku</option><option value='_food_bakery' style='color:#ff6600'>Bakery</option><option value='_food_bento' style='color:#ff6600'>Box Lunch / Box Sushi</option><option value='_food_sweets' style='color:#ff6600'>Sweets/Snack</option><option value='_food_pizza' style='color:#ff6600'>Home-delivered Pizza</option><option value='_food_demae' style='color:#ff6600'>Delivered Food</option><option value='_food_karaage' style='color:#ff6600'>FRIED CHIKIN</option><option value='_shopping_conveni' style='color:#0066d0'>Convenience Store</option><option value='_shopping_100kin' style='color:#0066d0'>100 yen store</option><option value='_shopping_drug' style='color:#0066d0'>Drug</option><option value='_shopping_homecenter' style='color:#0066d0'>DIY Store</option><option value='_shopping_super' style='color:#0066d0'>Supermarket</option><option value='_shopping_foods' style='color:#0066d0'>Foods</option><option value='_shopping_vending' style='color:#0066d0'>Vending Machine</option><option value='_shopping_discount' style='color:#0066d0'>Discount Store</option><option value='_shopping_liquor' style='color:#0066d0'>Liquor</option><option value='_shopping_recycle' style='color:#0066d0'>Recycle Shop</option><option value='_shopping_gms' style='color:#0066d0'>Shopping Center</option><option value='_shopping_glasses' style='color:#0066d0'>Glasses</option><option value='_shopping_contact' style='color:#0066d0'>Contact</option><option value='_shopping_hearingaid' style='color:#0066d0'>Hearing Aid</option><option value='_shopping_apparel' style='color:#0066d0'>Apparel</option><option value='_shopping_lingerie' style='color:#0066d0'>Lingerie</option><option value='_shopping_kimono' style='color:#0066d0'>Kimono</option><option value='_shopping_shoes' style='color:#0066d0'>Shoes</option><option value='_shopping_bag' style='color:#0066d0'>Bag</option><option value='_shopping_suit' style='color:#0066d0'>Tailor</option><option value='_shopping_watch' style='color:#0066d0'>Watch</option><option value='_shopping_highbrand' style='color:#0066d0'>High Brand</option><option value='_shopping_kaden' style='color:#0066d0'>Consumer Electronics</option><option value='_shopping_denkiya' style='color:#0066d0'>Electronics Store</option><option value='_shopping_pc' style='color:#0066d0'>PC/Mobile</option><option value='_shopping_furniture' style='color:#0066d0'>Furniture</option><option value='_shopping_futon' style='color:#0066d0'>Futon</option><option value='_shopping_zakka' style='color:#0066d0'>General Store</option><option value='_shopping_cosme' style='color:#0066d0'>Cosme</option><option value='_shopping_handcraft' style='color:#0066d0'>Handcrafts</option><option value='_shopping_music' style='color:#0066d0'>Music Instrument</option><option value='_shopping_book' style='color:#0066d0'>Book</option><option value='_shopping_comic' style='color:#0066d0'>Comic</option><option value='_shopping_cd' style='color:#0066d0'>Music CD</option><option value='_shopping_bicycle' style='color:#0066d0'>Bicycle</option><option value='_shopping_baby' style='color:#0066d0'>Kids</option><option value='_shopping_car' style='color:#0066d0'>Car supply</option><option value='_shopping_bike' style='color:#0066d0'>Motorbike supply</option><option value='_shopping_cardealer' style='color:#0066d0'>Car Dealer</option><option value='_shopping_usedcar' style='color:#0066d0'>Used Car</option><option value='_shopping_truck' style='color:#0066d0'>Truck</option><option value='_shopping_sports' style='color:#0066d0'>Outdoor/Sport</option><option value='_shopping_golf' style='color:#0066d0'>Golf</option><option value='_shopping_fishing' style='color:#0066d0'>Fishing-tackle</option><option value='_shopping_kinken' style='color:#0066d0'>Ticket / Jewelry</option><option value='_shopping_jewelry' style='color:#0066d0'>Jewelry</option><option value='_shopping_flower' style='color:#0066d0'>Flower</option><option value='_shopping_gift' style='color:#0066d0'>Gift</option><option value='_shopping_pet' style='color:#0066d0'>Pet</option><option value='_shopping_work' style='color:#0066d0'>Work</option><option value='_shopping_alter' style='color:#0066d0'>Arter</option><option value='_shopping_tea' style='color:#0066d0'>Tea / Coffee</option><option value='_service_bank' style='color:#ef1272'>Bank / ATM</option><option value='_service_parking' style='color:#ef1272'>Coin Parking</option><option value='_service_rsvparking' style='color:#ef1272'>Parking Rservation</option><option value='_service_carshare' style='color:#ef1272'>Car Sharing</option><option value='_service_garage' style='color:#ef1272'>Garage</option><option value='_service_gs' style='color:#ef1272'>Gas Station</option><option value='_service_rentacar' style='color:#ef1272'>Rental Car</option><option value='_service_carrier' style='color:#ef1272'>Carrier</option><option value='_service_delivery' style='color:#ef1272'>Home Deilvery</option><option value='_service_riyobiyo' style='color:#ef1272'>Barbar</option><option value='_service_hairsalon' style='color:#ef1272'>Hairsalon</option><option value='_service_nail' style='color:#ef1272'>Nailsalon</option><option value='_service_wig' style='color:#ef1272'>Wig</option><option value='_service_bhotel' style='color:#ef1272'>Hotel</option><option value='_service_bath' style='color:#ef1272'>Bath</option><option value='_service_rentalspace' style='color:#ef1272'>Rental Space</option><option value='_service_camera' style='color:#ef1272'>DPE</option><option value='_service_photostudio' style='color:#ef1272'>Photo Studio</option><option value='_service_idphoto' style='color:#ef1272'>ID Photo</option><option value='_service_rental' style='color:#ef1272'>Rental Video</option><option value='_service_gamecenter' style='color:#ef1272'>Amusement Arcade</option><option value='_service_uranai' style='color:#ef1272'>Fortune-telling</option><option value='_service_karaoke' style='color:#ef1272'>Karaoke</option><option value='_service_netcafe' style='color:#ef1272'>Net Cafe</option><option value='_service_theater' style='color:#ef1272'>Cinema Complex</option><option value='_service_travel' style='color:#ef1272'>Travel Agent</option><option value='_service_therapy' style='color:#ef1272'>Therapy</option><option value='_service_esthesalon' style='color:#ef1272'>Esthesalon</option><option value='_service_gym' style='color:#ef1272'>Fitness</option><option value='_service_indoorgolf' style='color:#ef1272'>Indoor Golf</option><option value='_service_loan' style='color:#ef1272'>Consumer Credit</option><option value='_service_trunk' style='color:#ef1272'>Trunk Room</option><option value='_service_estate' style='color:#ef1272'>Real Estate</option><option value='_service_cleaning' style='color:#ef1272'>Cleaning</option><option value='_service_coinlaundry' style='color:#ef1272'>Coin Washing Machine</option><option value='_service_juku' style='color:#ef1272'>Prep School</option><option value='_service_language' style='color:#ef1272'>Language School</option><option value='_service_pcschool' style='color:#ef1272'>PC School</option><option value='_service_musicschool' style='color:#ef1272'>Music School</option><option value='_service_preschool' style='color:#ef1272'>Preschool</option><option value='_service_culture' style='color:#ef1272'>Culture School</option><option value='_service_studio' style='color:#ef1272'>Studio</option><option value='_service_repair' style='color:#ef1272'>Repair</option><option value='_service_business' style='color:#ef1272'>BUSINESS/PRINT</option><option value='_service_pcrepair' style='color:#ef1272'>PC Repair</option><option value='_service_battery' style='color:#ef1272'>Rental Battery</option><option value='_service_cycleshare' style='color:#ef1272'>Share Mobility</option><option value='_service_bikeparking' style='color:#ef1272'>Bike Parking</option><option value='_service_pharmacy' style='color:#ef1272'>Pharmarcy</option><option value='_service_hoken' style='color:#ef1272'>Insurance</option><option value='_service_pachinko' style='color:#ef1272'>Pachinko</option><option value='_service_gamble' style='color:#ef1272'>Gamble</option><option value='_service_seimai' style='color:#ef1272'>Rice milling</option><option value='_service_mahjong' style='color:#ef1272'>Mahjong</option><option value='_service_kaigo' style='color:#ef1272'>Care</option><option value='_service_ceremony' style='color:#ef1272'>Ceremony Hall</option><option value='_service_housing' style='color:#ef1272'>Housing</option><option value='_service_showroom' style='color:#ef1272'>Showroom</option><option value='_service_logistics' style='color:#ef1272'>Logistics</option><option value='_service_eco' style='color:#ef1272'>Recycle Station</option><option value='_service_ryoiku' style='color:#ef1272'>Developmental Support</option><option value='_service_ikou' style='color:#ef1272'>Employment Transition Support</option><option value='_service_hydrogen' style='color:#ef1272'>Hydrogen</option></select ></div >
+		<div style='position:relative'>
+			<img style='
+					height:50px;
+				' loading='lazy' src=''>
+			<div style='
+				position: absolute;
+				top:0px;
+				left:60px;
+				font-size: 18px;
+				font-weight: bold;
+			'>Chain List</div>
+			
+			<div style='
+					position:absolute;
+					top:28px;
+					left:60px;
+			'>{{ total_chain }} chains</div>
+		</div>
+		<hr style='margin-bottom: 10px;'>
+
+
+ <div id='recent_body' class='category_body' style=''>
+
+{% for item in data %}
+<a href="{% url 'item_detail_map' item.chain_id %}" style="text-decoration: none; color: inherit;">
+<div class='chain' id='{{ item.chain_id }}'>
+	<div class='pin_div'>
+		<img  loading='lazy' src="{% static 'img/chain_logo/logo_'|add:item.chain_id|add:'.svg' %}">
+	</div>
+	<div class='chain_name'>{{ item.chain_id|split_last:"_" }}</div>
+	<div class='chain_desc'>{{ item.count }} added / POIs </div>
+</div>
+{% endfor %}

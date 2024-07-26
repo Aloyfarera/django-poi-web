@@ -1,0 +1,174 @@
+
+* {
+    margin:0;
+    padding:0;
+    font-family: "ArialMT", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", "メイリオ";
+}
+
+a { text-decoration: none; }
+
+body { height:100%;}
+html { height:100%;}
+
+#_base {
+    display: grid;
+    margin: 0 auto;
+    max-width: 1700px;
+    max-height: 1500px;
+    grid-template-rows: 70px auto 40px;
+    height:100%;
+}
+
+#_header {
+    grid-row: 1;
+    grid-column: 1;
+    border-bottom: 1px #ddd solid;
+}
+
+#_main {
+    grid-row: 2;
+    grid-column: 1;
+
+    display:flex;
+}
+
+#_footer {
+    grid-row: 3;
+    grid-column: 1;
+    font-size:12px;
+    text-align:center;
+}
+
+
+#_side {
+    flex-basis: 0px;
+    transition: 0.6s;
+
+    display: grid;
+    grid-template-rows: 70px;
+}
+
+    #_side_top {
+        grid-row: 1;
+        grid-column: 1;
+    }
+
+    #_side_bottom {
+        grid-row: 2;
+        grid-column: 1;
+    }
+
+#_map_container {
+    flex: 1;
+    transition: 0.6s;
+    border-left: 1px #ddd solid;
+
+}
+
+#_q {
+    font-size: 15px;
+    padding: 5px 0px 5px 15px;
+    border:solid 1px #ddd;
+    border-radius: 20px;
+}
+
+.map_button {
+vertical-align:bottom;
+    cursor:pointer;
+    font-size: 25px;;
+    color: #118ab2;
+    background: rgba(255, 255, 255, 0.9);
+    border: 0;
+    margin-top:10px;
+    width:40px;
+    height:40px;
+    border: solid 2px #118ab2;
+    border-radius: 10px;
+}
+
+* {
+		margin:0;
+		padding:0;
+		font-family: "ArialMT", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", "メイリオ";
+	}
+
+	a { text-decoration: none; }
+
+	body { height:100%;}
+	html { height:100%;}
+
+	#_base {
+		display: grid;
+		margin: 0 auto;
+		max-width: 1700px;
+		max-height: 1500px;
+		grid-template-rows: 70px auto 40px;
+		height:100%;
+	}
+
+	#_header {
+		grid-row: 1;
+		grid-column: 1;
+		border-bottom: 1px #ddd solid;
+	}
+	
+	#_main {
+		grid-row: 2;
+		grid-column: 1;
+
+		display:flex;
+	}
+
+	#_footer {
+		grid-row: 3;
+		grid-column: 1;
+		font-size:12px;
+		text-align:center;
+	}
+
+
+	#_side {
+		flex-basis: 0px;
+		transition: 0.6s;
+
+		display: grid;
+		grid-template-rows: 70px;
+	}
+
+		#_side_top {
+			grid-row: 1;
+			grid-column: 1;
+		}
+
+		#_side_bottom {
+			grid-row: 2;
+			grid-column: 1;
+		}
+
+	#_map_container {
+		flex: 1;
+		transition: 0.6s;
+		border-left: 1px #ddd solid;
+
+	}
+
+	#_q {
+		font-size: 15px;
+		padding: 5px 0px 5px 15px;
+		border:solid 1px #ddd;
+		border-radius: 20px;
+	}
+
+	.map_button {
+vertical-align:bottom;
+		cursor:pointer;
+		font-size: 25px;;
+		color: #118ab2;
+		background: rgba(255, 255, 255, 0.9);
+		border: 0;
+		margin-top:10px;
+		width:40px;
+		height:40px;
+		border: solid 2px #118ab2;
+		border-radius: 10px;
+	}

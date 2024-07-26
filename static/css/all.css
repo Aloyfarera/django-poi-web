@@ -1,0 +1,77 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: "ArialMT", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", "メイリオ";
+	text-decoration: none;
+}
+
+body {
+	margin:10px;
+}
+
+.cate {
+	display:inline-block;
+	border-radius: 10px;
+	margin:1px 0 1px 0;
+	font-size: 11px;
+	color:white;
+	padding: 2px 5px 2px 5px;
+}
+
+.chain {
+
+	overflow:hidden;
+
+	background:white;
+
+	cursor:pointer;
+
+	display:inline-block;
+	width:155px;
+	height: 35px;
+
+	position: relative;
+}
+
+.chain_name {
+	position: absolute;
+	font-size: 14px;
+	top: 1px;
+	left: 45px;
+	white-space: nowrap;
+}
+
+.chain_desc {
+	position: absolute;
+	font-size: 12px;
+	top: 17px;
+	left: 45px;
+	color: #bbb;
+	white-space: nowrap;
+}
+
+.pin_div {
+	position:absolute;
+	top:0px;
+	left:10px;
+	width:50px;
+	height:33px;
+	overflow:hidden;
+}
+
+.pin_div img {
+	margin-top:-2px;
+	width:30px;
+	height:40px;
+}
+
+
+.chain_pin {
+	position: absolute;
+	top:0;
+	left: 0px;
+	width: 55px;
+	height: 65px;
+	overflow: hidden;
+}
+
